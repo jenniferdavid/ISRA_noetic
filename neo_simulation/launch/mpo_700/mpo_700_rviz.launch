@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!--Define configuration-->
+  <!--"empty" = empty config-->
+  <!--"basic" = robot model + scan data-->
+  <!--"navigation" = robot model + scan data + navigation data-->
+  <arg name="config" value="navigation2"/>
+
+
+<!--=================================================================================================================================================================-->
+<!-- -->
+	<arg name="rvizconfig" default="$(find neo_simulation)/config/mpo_700/rviz/$(arg config)_config.rviz" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
+
+<!--=================================================================================================================================================================-->
+<!--
+ <param name="robot_description" command="cat '$(find neo_simulation)/robots/mpo_700.urdf.xacro'"/>
+
+  <!- send fake joint values ->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>
+
+  <!- Combine joint values ->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+  <!- Show in Rviz   ->
+  <node name="rviz" pkg="rviz" type="rviz"/>
+-->
+</launch>

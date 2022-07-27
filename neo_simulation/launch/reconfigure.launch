@@ -1,0 +1,41 @@
+  <!--node name="rosbag_recording" pkg="rosbag" type="record" args="-a -x .*(compressedDepth) split size=2048 -O $(arg filename)" /> -->
+
+
+ 
+<launch>
+
+  <!-- Arguments fore the rosbag -->
+  <arg name="filename" default="/home/tom/Documents/ISHRA/rosbag/ISHRA_Rosbag_thirdRun" />
+
+
+  <!-- Robot State Publisher-->
+  <node name="RobotStatePublisher" type="state_update_publisher.py" pkg="kinect_opencv" />
+
+  <!-- Robot Client Servers-->
+  <node name="TempClient" type="reconfigureTempClientState.py" pkg="temperature_layer" />
+  <node name="RadClient" type="reconfigureRadClientState.py" pkg="radiation_layer" />
+
+
+  <!-- Starts the ROSBAG recording  -->
+  <node name="rosbag_recording" pkg="rosbag" type="record" args="-a --split --size=2048 -O $(arg filename)" />
+
+
+
+
+  <!-- Robot Client Servers
+  <node name="TempServer" type="reconfigureTempServer.py" pkg="temperature_layer" />
+  <node name="RadServer" type="reconfigureRadServer.py" pkg="radiation_layer" />-->
+
+
+
+  <!-- Laser scan converter 
+  <include file="$(find kinect_opencv)/launch/frontTempLaserStarter.launch">
+  </include> -->
+
+  
+
+
+
+
+
+</launch>

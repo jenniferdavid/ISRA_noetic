@@ -1,0 +1,39 @@
+<launch>
+<!-- Set variables for filenames -->
+
+  <!-- Map file -->
+  <arg name="map_file" default="$(find temperature_layer_isra)/data/map.yaml"/>
+
+  <!-- Costmap yaml files -->
+  <arg name="global_costmap_yaml" default="$(find temperature_layer_isra)/launch/yaml/global_demonstration.yaml"/>
+  <arg name="local_costmap_yaml" default="$(find temperature_layer_isra)/launch/yaml/local_demonstration.yaml"/>
+
+  <!-- RVIZ config file -->
+  <arg name="rviz_config" default="$(find temperature_layer_isra)/rviz/costmap_demo.rviz"/>
+
+
+<!-- Run the map server -->
+ 
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+
+<!-- Play radiation sensor data -->
+
+  <node name="rad_player" pkg="temperature_layer_isra" type="playDatafile.py"/>
+
+
+<!-- launch costmap_2d node independently -->
+
+  <node name="global_costmap_2d" pkg="costmap_2d" type="costmap_2d_node" output="screen">
+    <rosparam file="$(arg global_costmap_yaml)" command="load" ns="costmap" />
+  </node>
+
+  <node name="local_costmap_2d" pkg="costmap_2d" type="costmap_2d_node" output="screen">
+    <rosparam file="$(arg local_costmap_yaml)" command="load" ns="costmap" />
+  </node>
+
+<!-- RVIZ for visualisation -->
+
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(arg rviz_config)" />
+
+</launch>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+<!--    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz" />-->
+    <node pkg="rplidar_ros" type="RiskCalculation.py" name="RiskCalculation" output="screen" />
+<!--    <node pkg="rplidar_ros" type="CameraSetup.py" name="CameraSetup" output="screen" />-->
+</launch>

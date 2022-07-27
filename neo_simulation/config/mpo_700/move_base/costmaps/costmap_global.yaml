@@ -1,0 +1,9 @@
+global_frame: map
+rolling_window: false
+track_unknown_space: true
+
+plugins:
+  - {name: static,                  type: "costmap_2d::StaticLayer"}
+  - {name: inflation,               type: "costmap_2d::InflationLayer"}
+  - {name: radiationGlobal,         type: "radiation_layer_isra_namespace::RadLayer"}
+  - {name: temperatureGlobal,       type: "temperature_layer_isra_namespace::TempLayer"}

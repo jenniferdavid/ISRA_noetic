@@ -1,0 +1,6 @@
+<launch>
+  <node name="tempFront" type="frontTemp_pointCloud_publisher.py" pkg="kinect_opencv" />
+  <node name="tempBack" type="backTemp_pointCloud_publisher.py" pkg="kinect_opencv" />
+  <node name="tempLeft" type="leftTemp_pointCloud_publisher.py" pkg="kinect_opencv" />
+  <node name="tempRight" type="rightTemp_pointCloud_publisher.py" pkg="kinect_opencv" />
+</launch>

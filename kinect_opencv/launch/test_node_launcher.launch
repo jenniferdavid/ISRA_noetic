@@ -1,0 +1,6 @@
+<launch>
+  <node name="tempFront" type="tempFront_test_publisher.py" pkg="kinect_opencv" />
+  <node name="tempBack" type="backTemp_test_publisher.py" pkg="kinect_opencv" />
+  <node name="tempLeft" type="leftTemp_test_publisher.py" pkg="kinect_opencv" />
+  <node name="tempRight" type="rightTemp_test_publisher.py" pkg="kinect_opencv" />
+</launch>

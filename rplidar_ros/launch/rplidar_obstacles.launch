@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz" />
+
+    <node pkg="rplidar_ros" type="obstacle_distance.py" name="obstacle_distance" output="screen" />
+</launch>

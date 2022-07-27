@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+<!--Initial Position-->
+    <arg name="x_pos" default="-5.5"/>
+    <arg name="y_pos" default="-9.2"/>
+    <arg name="z_pos" default="0.0"/>
+    <!--To launch scan unifier set the value to true-->
+    <arg name="scanunifier" value="true"/>
+
+
+
+<!--Robot description to param server-->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find neo_simulation)/robots/mpo_700/mpo_700.urdf.xacro'"/>
+
+  <node name="mpo_700_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+  args="-urdf -param robot_description -model mpo_700 -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)" />
+  
+  <!--To publish Joint and Robot state-->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+	<param name="rate" value="20.0"/>
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+	<param name="publish_frequency" value="20.0"/>
+  </node>
+
+<!---=================================================================================================================================================================-->
+
+  <!--if arg scan-unifier is set to true-->
+
+ <group if="$(arg scanunifier)">
+ 	<include file="$(find neo_simulation)/config/mpo_700/scan_unifier/mpo_700_scan_unifier.launch"/>
+ </group>
+
+
+<!---=================================================================================================================================================================-->
+
+</launch>

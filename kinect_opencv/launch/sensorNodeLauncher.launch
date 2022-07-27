@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  
+  <!-- Point Clouds-->
+  <include file="$(find kinect_opencv)/launch/pointCloud_publisher_launcher.launch">
+  </include>
+
+
+  <!-- Laser scan converter -->
+  <include file="$(find kinect_opencv)/launch/frontTempLaserStarter.launch">
+  </include>
+
+  <include file="$(find kinect_opencv)/launch/backTempLaserStarter.launch">
+  </include>
+
+  <include file="$(find kinect_opencv)/launch/leftTempLaserStarter.launch">
+  </include>
+
+  <include file="$(find kinect_opencv)/launch/rightTempLaserStarter.launch">
+  </include>
+
+
+
+
+
+</launch>

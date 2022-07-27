@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="neo_simulation" type="get_position.py" name="get_position" output="screen" />
+</launch>

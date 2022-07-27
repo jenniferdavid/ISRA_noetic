@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mpo_700">
+
+
+  <xacro:macro name="kinect" params="name parent *origin ros_topic">
+    <joint name="${name}_joint" type="fixed">
+      <axis xyz="0 1 0" />
+      <insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+    <link name="${name}_link" type="depth">
+      <inertial>
+        <mass value="0.1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.0007" ixy="0" ixz="0" iyy="0.0007" iyz="0" izz="0.00009" />
+      </inertial>
+      <visual>
+        <origin xyz="0.17 0 0.4" rpy="0 0 0" />
+          <geometry>
+           <!--
+            <mesh>
+             <uri>model://kinect/meshes/kinect.dae</uri> 
+            </mesh>-->
+                <mesh filename="package://neo_simulation/robots/mpo_700/meshes/kinect.dae" scale="1 1 1" />
+          </geometry>
+        </visual>
+      <collision>
+        <origin xyz="0 0 0.4" rpy="0 0 0" />
+          <geometry>
+            <box size="0.073000 0.276000 0.072000"/>
+          </geometry>
+        </collision>
+    </link>
+  </xacro:macro>
+
+  </robot>
