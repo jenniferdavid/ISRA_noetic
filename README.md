@@ -1,8 +1,8 @@
-# ISRA
+# ISRA - noetic
 
-This package has two new layers for layered costmaps - temperature and radiation layers. The code works with ROS Noetic. The original code is written by [Tom Bridgwater] and [Andy West] which can be found in [here]. It works on a Neobotix mp-700 robot and ROS Navigation stack.
+This is the modified code for ISRA - Internal State-based Risk Assessment for navigation of mobile robots. It has two new layers for layered costmaps - temperature and radiation layers. The code works with ROS Noetic. The original code is written by [Tom Bridgwater] and [Andy West] which can be found in [here]. It works on a Neobotix mp-700 robot with ROS Navigation stack.
 
-First add the my_ground_plane to your /home/user/.gazebo/models folder
+First add the "my_ground_plane" to your /home/user/.gazebo/models folder.
 
 Download the other 5 folders to your catkin workspace and catkin_make it.
 In case, the cfg files did not generate .h files then the scripts might be in read-only mode.
