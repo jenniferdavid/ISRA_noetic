@@ -5,8 +5,9 @@ This is the modified code for ISRA - Internal State-based Risk Assessment for na
 First add the "my_ground_plane" to your /home/user/.gazebo/models folder.
 
 Download the other 5 folders to your catkin workspace and catkin_make it.
-In case, the cfg files did not generate .h files then the scripts might be in read-only mode.
-So, make into an executable file using:
+In case, the catking_make is not built due to missing header files. It is due to the cfg files in the folder /temperature_layer_isra/cfg/ or /radiation_layer_isra/cfg/  did not generated the required .h files because the python scripts in the folders /temperature_layer_isra/scripts/ and /radiation_layer_isra/scripts/ are in read-only mode.
+
+So, go to the folders /temperature_layer_isra/scripts/ and /radiation_layer_isra/scripts/ and make the .py files into executable ones using:
 ```
 sudo chmod +x filename
 ```
